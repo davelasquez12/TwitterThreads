@@ -6,16 +6,11 @@ import java.util.concurrent.ExecutionException;
 public class Main {
 
     public static void main(String[] args) throws IOException, ExecutionException, InterruptedException {
+        String[] phrases = new String[] {"pizza and wings", "batman and robin", "tom and jerry", "drinking coffee", "cats and dogs"};
+        ProcessAsync processAsync = new ProcessAsync(phrases);
+        ProcessSync processSync = new ProcessSync(phrases);
 
-	    // Build and format 3 twitter search queries
-
-        // Loop through queries. For each query start a CompletableFuture chain. Each chain will page through the result set asynchronously.
-
-        // Combine all Future objects into one using CompletableFuture.allOf(future1...futureN), then call combinedFutures.get()
-
-        // Get the result counts from each future
-
-        ProcessAsync processAsync = new ProcessAsync();
         processAsync.run();
+        processSync.run();
     }
 }
