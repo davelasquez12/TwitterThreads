@@ -33,6 +33,7 @@ public class Process {
     public List<String> buildQueries(String... phrasesToSearch) {
         List<String> queries = new ArrayList<>(phrasesToSearch.length);
 
+        //only get original tweets in English (not part of a retweet, reply, and does not have any links)
         for(String phrase : phrasesToSearch) {
             queries.add("\"" + phrase + "\" lang:en -is:retweet -is:reply -has:links");
         }
